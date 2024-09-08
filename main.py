@@ -17,7 +17,7 @@ def authenticate_google_api():
     
     # Check if token.json exists and delete it to force re-authentication
     if os.path.exists('token.json'):
-        os.remove('token.json')
+        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
     # Authenticate and get credentials
     if not creds or not creds.valid:
